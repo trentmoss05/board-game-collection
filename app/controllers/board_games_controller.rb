@@ -14,8 +14,14 @@ class BoardGamesController < ApplicationController
 
   post '/games' do
     redirect_if_not_logged_in
-    BoardGame.create(name: params[:name], game_type: params[:game_type], playtime: params[:playtime], playercount: params[:playercount])
-    redirect '/games'
+    @game = BoardGame.create(name: params[:name], game_type: params[:game_type], playtime: params[:playtime], playercount: params[:playercount])
+    redirect "/games/#{@game.id}"
+  end
+
+  get '/games/:id' do
+    redirect_if_not_logged_in
+    @game = BoardGame.find_by_id(params[:id])
+    erb :'board_games/show'
   end
 
 end

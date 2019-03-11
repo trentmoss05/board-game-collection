@@ -1,4 +1,4 @@
-class GamesController < ApplicationController
+class BoardGamesController < ApplicationController
 
   get '/games' do
     "These are you board games"

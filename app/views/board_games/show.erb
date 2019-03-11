@@ -2,3 +2,8 @@
 <%= @game.game_type %> <br />
 <%= @game.playtime %><br />
 <%= @game.playercount %> <br />
+
+<form action="/games/<%= @game.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>

@@ -6,4 +6,4 @@ require './config/environment'
 
 run ApplicationController
 use UsersController
-use GamesController
+use BoardGamesController

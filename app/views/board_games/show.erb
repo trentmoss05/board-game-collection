@@ -1,9 +1,13 @@
+<a href="/games">Back to all games</a><br>
 <%= @game.name %><br />
 <%= @game.game_type %> <br />
 <%= @game.playtime %><br />
 <%= @game.playercount %> <br />
-
+<br>
+<form action="/games/<%= @game.id %>/edit" method="get">
+  <input type="submit" name="" value="Edit">
+</form>
 <form action="/games/<%= @game.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
+  <input type="submit" value="Delete">
 </form>

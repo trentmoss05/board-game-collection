@@ -1,5 +1,9 @@
-<% @games.each do |game| %>
-     <%= game.name %> <br>
+<ol>
+  <% @games.each do |game| %>
+     <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br></li>
      <%= game.game_type %> <br>
      <br>
    <% end %>
+</ol>
+
+<a href="/games/new"><h4>Add New Game</h4></a>

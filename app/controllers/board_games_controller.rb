@@ -2,6 +2,7 @@ class BoardGamesController < ApplicationController
 
   get '/games' do
     redirect_if_not_logged_in
+    @error_message = params[:error]
     @games = BoardGame.all
     erb :'board_games/index'
   end

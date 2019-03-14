@@ -1,9 +1,35 @@
-<ol>
-  <% @games.each do |game| %>
-     <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br></li>
-     <%= game.game_type %> <br>
-     <br>
-   <% end %>
-</ol>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Your Board Games</title>
+    <style>
+      button {
+        background-color: #f44336;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        float: right;
+      }
+    </style>
+  </head>
+  <header>
+    <form action="/logout" method="get">
+      <button type="submit" name="logout">Log Out</button>
+    </form>
+  </header>
+  <body>
 
-<a href="/games/new"><h4>Add New Game</h4></a>
+    <ol>
+      <% @games.each do |game| %>
+         <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br></li>
+         <%= game.game_type %> <br>
+         <br>
+       <% end %>
+    </ol>
+
+    <a href="/games/new"><h4>Add New Game</h4></a>
+  </body>
+</html>

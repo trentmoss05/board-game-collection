@@ -16,6 +16,11 @@
         box-sizing: border-box;
       }
 
+      h2 {
+        text-align: center;
+        color: #4CAF50;
+      }
+
       button {
         background-color: #4CAF50;
         color: white;
@@ -61,29 +66,30 @@
            display: block;
            float: none;
         }
-        .cancelbtn {
-           width: 100%;
-        }
+
       }
   </style>
 </head>
   </head>
   <body>
-    <form action="/action_page.php">
+    <form action="/login" method="post">
+      <h2>Welcome to Board Game Central</h2>
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="https://unsplash.com/photos/DT9d0RzDfe4" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    Don't have an account? <a href="/signup">Sign Up</a>
 
     <button type="submit">Login</button>
 
-</form>
+  </form>
 
   </body>
 </html>

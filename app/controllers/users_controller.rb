@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/games'
     else
-      redirect '/login'
+      erb :'users/error'
     end
   end
 

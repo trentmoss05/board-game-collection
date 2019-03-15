@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 6) do
+ActiveRecord::Schema.define(version: 7) do
 
   create_table "board_games", force: :cascade do |t|
     t.string "name"
     t.string "game_type"
     t.string "playtime"
     t.string "playercount"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

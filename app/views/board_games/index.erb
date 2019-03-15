@@ -24,8 +24,8 @@
 
     <ol>
       <% @games.each do |game| %>
-         <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br></li>
-         <%= game.game_type %> <br>
+         <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br>
+         <%= game.game_type %> <br></li>
          <br>
        <% end %>
     </ol>

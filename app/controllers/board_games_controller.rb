@@ -33,7 +33,7 @@ class BoardGamesController < ApplicationController
 
   post '/games' do
     redirect_if_not_logged_in
-    @game = BoardGame.create(name: params[:name], game_type: params[:game_type], playtime: params[:playtime], playercount: params[:playercount])
+    @game = BoardGame.create(name: params[:name], game_type: params[:game_type], playtime: params[:playtime], playercount: params[:playercount], user_id: session[:user_id])
     redirect "/games/#{@game.id}"
   end
 

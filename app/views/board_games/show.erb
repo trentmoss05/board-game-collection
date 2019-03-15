@@ -1,13 +1,60 @@
-<a href="/games">Back to your games</a><br>
-<%= @game.name %><br />
-<%= @game.game_type %> <br />
-<%= @game.playtime %><br />
-<%= @game.playercount %> <br />
-<br>
-<form action="/games/<%= @game.id %>/edit" method="get">
-  <input type="submit" name="" value="Edit">
-</form>
-<form action="/games/<%= @game.id %>/delete" method="post">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=@game.name%></title>
+    <style>
+      button.logout {
+        background-color: #f44336;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        float: right;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      input {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      input:hover {
+        opacity: 0.8;
+      }
+
+      #edit-game {
+        background-color: #F0A713;
+      }
+
+    </style>
+  </head>
+  <header>
+    <form action="/logout" method="get">
+      <button type="submit" name="logout" class="logout">Log Out</button>
+    </form>
+  </header>
+  <body>
+    <a href="/games">Back to your games</a><br><br>
+    <strong><%= @game.name %><br /></strong>
+    <%= @game.game_type %> <br />
+    <%= @game.playtime %><br />
+    <%= @game.playercount %> <br />
+    <br>
+    <form action="/games/<%= @game.id %>/edit" method="get">
+      <input type="submit" name="" value="&#9998 Edit" id="edit-game">
+    </form>
+    <br>
+    <form action="/games/<%= @game.id %>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="&#10008 Delete">
+    </form>
+  </body>
+</html>

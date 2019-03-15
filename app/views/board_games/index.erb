@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Your Board Games</title>
     <style>
-      button {
+      button.logout {
         background-color: #f44336;
         color: white;
         padding: 14px 20px;
@@ -13,11 +13,25 @@
         cursor: pointer;
         float: right;
       }
+
+      button.new-game {
+        border: none;
+        cursor: pointer;
+        background-color: #0D4F8B;
+        color: white;
+        padding: 15px;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+
     </style>
   </head>
   <header>
     <form action="/logout" method="get">
-      <button type="submit" name="logout">Log Out</button>
+      <button type="submit" name="logout" class="logout">Log Out</button>
     </form>
   </header>
   <body>
@@ -27,12 +41,16 @@
     <% end %>
     <ol>
       <% @user_games.each do |game| %>
-         <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br>
-         <%= game.game_type %> <br></li>
+         <li><strong><a href="/games/<%= game.id %>"><%= game.name %></a></strong> <br>
+         <%= game.game_type %></li>
          <br>
+
        <% end %>
     </ol>
 
-    <a href="/games/new"><h4>Add New Game</h4></a>
+    <!-- <a href="/games/new"><h4>Add New Game</h4></a> -->
+    <form action="/games/new" method="get">
+      <button type="submit" name="new_game" class="new-game">Add New Game</button>
+    </form>
   </body>
 </html>

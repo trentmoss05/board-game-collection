@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #create new user
+  #renders new user form
   get '/signup' do
     if !session[:user_id]
       erb :'users/new'

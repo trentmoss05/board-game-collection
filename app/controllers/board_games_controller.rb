@@ -3,7 +3,13 @@ class BoardGamesController < ApplicationController
   get '/games' do
     redirect_if_not_logged_in
     @error_message = params[:error]
-    @games = BoardGame.all
+    games = BoardGame.all
+    @user_games = []
+    games.each do |game|
+      if game.user_id == session[:user_id]
+        @user_games << game
+      end
+    end
     erb :'board_games/index'
   end
 

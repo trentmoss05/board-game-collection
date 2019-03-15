@@ -23,7 +23,7 @@
   <body>
 
     <ol>
-      <% @games.each do |game| %>
+      <% @user_games.each do |game| %>
          <li><a href="/games/<%= game.id %>"><%= game.name %></a> <br>
          <%= game.game_type %> <br></li>
          <br>

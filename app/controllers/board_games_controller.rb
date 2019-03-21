@@ -23,6 +23,9 @@ class BoardGamesController < ApplicationController
     redirect_if_not_logged_in
     @error_message = params[:error]
     @game = BoardGame.find_by_id(params[:id])
+    if current_user != @game.user
+      redirect to '/games'
+    end
     erb :'board_games/edit'
   end
 
@@ -46,11 +49,17 @@ class BoardGamesController < ApplicationController
   get '/games/:id' do
     redirect_if_not_logged_in
     @game = BoardGame.find_by_id(params[:id])
+    if current_user != @game.user
+      redirect to '/games'
+    end
     erb :'board_games/show'
   end
 
   delete '/games/:id/delete' do
     @game = BoardGame.find_by_id(params[:id])
+    if current_user != @game.user
+      redirect to '/games'
+    end
     @game.delete
     redirect to '/games'
   end

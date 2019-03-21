@@ -37,6 +37,7 @@
     </form>
   </header>
   <body>
+    <h1>Welcome <%= current_user.username %></h1>
 
     <% if @user_games.empty? %>
         <p>You do not have any games in your collection, click below to add one.</p>
